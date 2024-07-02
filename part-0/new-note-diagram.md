@@ -1,4 +1,4 @@
-```mermaind
+```mermaid
 newSequenceDiagram
     participant browser
     participant server
