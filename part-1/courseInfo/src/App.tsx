@@ -3,6 +3,7 @@ interface ContentInterface {
 }
 
 interface PartInterface {
+  key?: number;
   part: string;
   exerciseNumber: number;
   id: number;
@@ -29,12 +30,12 @@ const Part = ({ part, exerciseNumber, id }: PartInterface) => {
   );
 };
 
-const Content = ({ Content }: ContentInterface) => {
+const Content1 = ({ Content }: ContentInterface) => {
   return (
     <>
-      {Content.map((Content, key) => (
+      {Content.map((Content) => (
         <Part
-          key={key}
+          key={Content.id}
           id={Content.id}
           part={Content.name}
           exerciseNumber={Content.exercises}
@@ -43,6 +44,10 @@ const Content = ({ Content }: ContentInterface) => {
     </>
   );
 };
+
+const Content2 = ({ Content }: any) => {
+  return
+}
 
 const Total = ({ exercises }: totalInterface) => {
   return (
@@ -57,23 +62,38 @@ const Total = ({ exercises }: totalInterface) => {
 
 const App = () => {
   const course = "Half Stack application development";
-  const part1 = "Fundamentals of React";
-  const exercises1 = 10;
-  const part2 = "Using props to pass data";
-  const exercises2 = 7;
-  const part3 = "State of a component";
-  const exercises3 = 14;
+  const part1 = {
+    name: "Fundamentals of React",
+    exercises: 10,
+  };
+  const part2 = {
+    name: "Using props to pass data",
+    exercises: 7,
+  };
+  const part3 = {
+    name: "State of a component",
+    exercises: 14,
+  };
 
-  const ContentInformation = [
+  // const part1 = "Fundamentals of React";
+  // const exercises1 = 10;
+  // const part2 = "Using props to pass data";
+  // const exercises2 = 7;
+  // const part3 = "State of a component";
+  // const exercises3 = 14;
+
+  const OldContentInformation = [
     { id: 1, name: part1, exercises: exercises1 },
     { id: 2, name: part2, exercises: exercises2 },
     { id: 3, name: part3, exercises: exercises3 },
   ];
 
+  const NewContentInformation = [part1, part2, part3];
+
   return (
     <div>
       <Header course={course} />
-      <Content Content={ContentInformation} />
+      <Content Content={NewContentInformation} />
       <Total exercises={[exercises1, exercises2, exercises3]} />
     </div>
   );

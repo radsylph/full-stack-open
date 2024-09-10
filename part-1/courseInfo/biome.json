@@ -7,9 +7,10 @@
 		"enabled": true,
 		"rules": {
 			"suspicious": {
-				"noExplicitAny": "warn"
+				"noExplicitAny": "off",
+				"noImplicitAnyLet": "off"
 			},
-			"recommended": true
+			"recommended": false
 		}
 	}
 }
