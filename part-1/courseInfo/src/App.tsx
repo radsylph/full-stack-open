@@ -44,7 +44,7 @@ const Part1 = ({ content, exercises, id }: PartInterface1) => {
   return (
     <>
       <p>
-        Part {id}. {content} has {exercises} exercises
+        Part {id}, {content} has {exercises} exercises
       </p>
     </>
   );
@@ -77,17 +77,35 @@ const Total = ({ exercises }: totalInterface) => {
 
 const App = () => {
   const course = "Half Stack application development";
-  const part1 = {
-    name: "Fundamentals of React",
-    exercises: 10,
-  };
-  const part2 = {
-    name: "Using props to pass data",
-    exercises: 7,
-  };
-  const part3 = {
-    name: "State of a component",
-    exercises: 14,
+  // const part1 = {
+  //   name: "Fundamentals of React",
+  //   exercises: 10,
+  // };
+  // const part2 = {
+  //   name: "Using props to pass data",
+  //   exercises: 7,
+  // };
+  // const part3 = {
+  //   name: "State of a component",
+  //   exercises: 14,
+  // };
+
+  const parts = {
+    part1: {
+      id: 1,
+      name: "Fundamentals of React",
+      exercises: 10,
+    },
+    part2: {
+      id: 1,
+      name: "Using props to pass data",
+      exercises: 7,
+    },
+    part3: {
+      id: 1,
+      name: "State of a component",
+      exercises: 14,
+    },
   };
 
   // const part1 = "Fundamentals of React";
@@ -104,16 +122,22 @@ const App = () => {
   // ];
 
   const NewContentInformation: PartInterface1[] = [
-    { id: 1, content: part1.name, exercises: part1.exercises },
-    { id: 2, content: part2.name, exercises: part2.exercises },
-    { id: 3, content: part3.name, exercises: part3.exercises },
+    { id: 1, content: parts.part1.name, exercises: parts.part1.exercises },
+    { id: 2, content: parts.part2.name, exercises: parts.part2.exercises },
+    { id: 3, content: parts.part3.name, exercises: parts.part3.exercises },
   ];
 
   return (
     <div>
       <Header course={course} />
       <Content1 Content1={NewContentInformation} />
-      <Total exercises={[exercises1, exercises2, exercises3]} />
+      <Total
+        exercises={[
+          parts.part1.exercises,
+          parts.part2.exercises,
+          parts.part3.exercises,
+        ]}
+      />
     </div>
   );
 };
